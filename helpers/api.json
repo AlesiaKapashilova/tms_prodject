@@ -1,0 +1,48 @@
+[
+  {
+    "id": 1,
+    "username": "Alesia09",
+    "firstName": "Alesia",
+    "lastName": "Kapashilova",
+    "email": "alesia_94@bk.ru",
+    "password": "qwe123456",
+    "phone": "375292516098",
+    "userStatus": 0
+  },
+  {
+    "id": 1,
+    "category": {
+      "id": 1,
+      "name": "Amira"
+    },
+    "name": "ferret",
+    "photoUrls": [
+      "mirysya"
+    ],
+    "tags": [
+      {
+        "id": 1,
+        "name": "harmful"
+      }
+    ],
+    "status": "available"
+  },
+  {
+    "id": 1,
+    "category": {
+      "id": 1,
+      "name": "Mirka"
+    },
+    "name": "ferret",
+    "photoUrls": [
+      "mirysya"
+    ],
+    "tags": [
+      {
+        "id": 1,
+        "name": "harmful"
+      }
+    ],
+    "status": "available"
+  }
+]
