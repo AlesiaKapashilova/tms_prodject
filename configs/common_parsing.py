@@ -1,20 +1,23 @@
 import configparser
 
 config = configparser.ConfigParser()
-config.read('/home/alesya/les/my_work/tms_prodject/configs/сommon_configs.ini')
+config.read('/home/alesya/les/my_work/tms_prodject/configs/common_configs.ini')
 
 # admin login data
-username = config.get("login_info", "username")
-password = config.get("login_info", "password")
+username = config.get("authorization data", "Admin")
+password = config.get("authorization data", "Admin_password")
 
 # new user login data
-new_username = config.get("new_user_info", "username")
-new_password = config.get("new_user_info", "password")
+new_username = config.get("user_data", "Username")
+new_password = config.get("user_data", "Password")
 
 # new date and time for image
-data = config.get("picture_info", "data")
-time = config.get("picture_info", "time")
-new_date = config.get("picture_info", "new_date")
+data = config.get("image_data", "data")
+time = config.get("image_data", "time")
+new_date = config.get("image_data", "new_date")
 
 # greeting a new user by his name
 welcome_name = config.get("welcome", "welcome_name")
+
+# group for users
+group_name = config.get("group_for_user", "group")
