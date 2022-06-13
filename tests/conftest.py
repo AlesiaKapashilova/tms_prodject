@@ -1,6 +1,9 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+
+from configs.common_parsing import username, password, new_username, \
+    new_password
 from pages.Database_page import DataBasePage
 from pages.Group_page import GroupsPage
 from pages.Login_page import LoginPage
@@ -8,8 +11,7 @@ from pages.Main_page import MainPage
 from pages.User_add_page import User_add_page
 from pages.User_page_logout import User_Page_Logout
 from pages.Post_page import PostsPage
-from configs.common_parsing import username, password, new_username, new_password
-from configs.database_parsing import delete_user_from_group, delete_user
+
 
 
 @pytest.fixture(scope='class')
@@ -79,11 +81,11 @@ def posts_page(browser):
     browser.quit()
 
 
-@pytest.fixture(scope="class")
-def db_conn():
-    db = DataBasePage()
-    conn = db.create_connection()
-    yield conn
-    # db.executions(conn, delete_user_from_group)
-    # db.executions(conn, delete_user)
-    conn.close()
+# @pytest.fixture(scope="class")
+# def db_conn():
+#     db = DataBasePage()
+#     conn = db.create_connection()
+#     yield conn
+#     # db.executions(conn, delete_user_from_group)
+#     # db.executions(conn, delete_user)
+#     conn.close()

@@ -10,5 +10,5 @@ class GroupsPage(BasePage):
         self.open(self.groups_url)
 
     def name_of_created_group(self):
-        my_group = self.find_element(Group_Page_Locators.GROUP_FOR_USER)
+        my_group = self.find_elements(Group_Page_Locators.GROUP_FOR_USER).text
         return my_group
