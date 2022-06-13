@@ -22,17 +22,15 @@ class TestAllSteps():
         login_user.click_login_field()
         assert login_user.current_url() == 'http://localhost:8000/admin/'
 
-    def test_grop_from_ui(self, login_page, browser):
+    def test_group_from_ui(self, login_page, browser):
         self.db.add_group("Privat_group")
-        groups = GroupsPage()
-        groups.open_groups_page()
-        groups.name_of_created_group()
-        assert groups == "Privat_group"
+        groups = GroupsPage(browser)
+        groups.open_group_page()
+        assert groups.check_group_exist("Privat_group")
 
-
-    def test_user_add(self,login_page, browser):
+    def test_user_add(self, login_page, browser):
         new_user = User_add_page(browser)
-        new_user.click_add_field()
+        new_user.open_add_user_page()
         new_user.fill_username_field(new_username)
         new_user.fill_password_field(new_password)
         new_user.fill_confirm_passwd_field(new_password)
@@ -43,8 +41,5 @@ class TestAllSteps():
 
         assert self.db.user_from_group('Alesia', 'Privat_group')
 
-    # def test_logout(self, login_page, browser):
-    #     users_logout = User_Page_Logout(browser)
-    #     page_logout = BasePage(browser)
-    #     users_logout.click_logout_field()
-    #     assert page_logout.current_url == 'http://localhost:8000/admin/logout/'
+    def test_user_from_bd(self):
+        assert self.db.user_from_db('Alesia')

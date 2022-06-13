@@ -79,13 +79,3 @@ def posts_page(browser):
     posts_page.open_posts_page()
     yield posts_page
     browser.quit()
-
-
-# @pytest.fixture(scope="class")
-# def db_conn():
-#     db = DataBasePage()
-#     conn = db.create_connection()
-#     yield conn
-#     # db.executions(conn, delete_user_from_group)
-#     # db.executions(conn, delete_user)
-#     conn.close()

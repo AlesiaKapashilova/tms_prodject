@@ -49,7 +49,7 @@ class DataBasePage:
     def user_from_db(self, name):
         cursor = self.conn.cursor()
         cursor.execute(
-            "SELECT * FROM auth_user WHERE username = '" + name + "')")
+            "SELECT * FROM auth_user WHERE username = '" + name + "'")
         records = cursor.fetchall()
         cursor.close()
         if len(records) == 1:
@@ -63,7 +63,6 @@ class DataBasePage:
             "INSERT INTO auth_group (name) VALUES ('" + name_group + "') ON CONFLICT DO NOTHING")
         self.conn.commit()
         cursor.close()
-
 
 
     def close(self):
