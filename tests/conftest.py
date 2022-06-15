@@ -1,6 +1,7 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 from configs.common_parsing import username, password, new_username, new_password
 from pages.Group_page import GroupsPage
 from pages.Login_page import LoginPage
@@ -13,14 +14,14 @@ from pages.Post_page import PostsPage
 
 @pytest.fixture(scope='class')
 def browser():
+    ser = Service("tests/chromedriver")
+
     chrome_options = Options()
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--disable-dev-shm-usage')
-    driver = webdriver.Chrome(
-        executable_path="tests/chromedriver",
-        options=chrome_options)
+    driver = webdriver.Chrome(service=ser, options=chrome_options)
     driver.maximize_window()
     driver.implicitly_wait(5)
     yield driver
