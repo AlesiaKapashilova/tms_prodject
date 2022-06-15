@@ -1,6 +1,6 @@
 import json
 
-with open('/home/alesya/les/my_work/tms_prodject/helpers/api.json',
+with open('helpers/api.json',
           'r') as file:
     object = json.load(file)
 
