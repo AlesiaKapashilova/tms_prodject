@@ -1,7 +1,7 @@
 import configparser
 
 config = configparser.ConfigParser()
-config.read('/home/alesya/les/my_work/tms_prodject/configs/common_configs.ini')
+config.read('configs/common_configs.ini')
 
 # admin login data
 username = config.get("authorization data", "Admin")

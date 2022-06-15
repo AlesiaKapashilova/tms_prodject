@@ -1,10 +1,7 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-
-from configs.common_parsing import username, password, new_username, \
-    new_password
-from pages.Database_page import DataBasePage
+from configs.common_parsing import username, password, new_username, new_password
 from pages.Group_page import GroupsPage
 from pages.Login_page import LoginPage
 from pages.Main_page import MainPage
