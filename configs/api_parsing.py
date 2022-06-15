@@ -1,7 +1,7 @@
 import configparser
 
 config = configparser.ConfigParser()
-config.read('/home/alesya/les/my_work/tms_prodject/configs/api_config.ini')
+config.read('configs/api_config.ini')
 
 # user_requests
 create_user = config.get("user_requests", "create")
