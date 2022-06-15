@@ -1,7 +1,6 @@
 import psycopg2
 from psycopg2 import Error
 import configs.database_parsing as conf
-from configs.common_parsing import new_username
 
 
 class DataBasePage:

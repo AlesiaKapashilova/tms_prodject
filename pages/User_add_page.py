@@ -1,6 +1,5 @@
 from pages.Base_page import BasePage
 from locators.User_add_locators import *
-import time
 
 
 class User_add_page(BasePage):

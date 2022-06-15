@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from configs.common_parsing import username, password, new_username, new_password
+from pages.Admin_page import AdminPage
 from pages.Group_page import GroupsPage
 from pages.Login_page import LoginPage
 from pages.Main_page import MainPage
@@ -48,7 +49,7 @@ def groups_page(browser):
     login_page = LoginPage(browser)
     login_page.login(username, password)
     groups_page = GroupsPage(browser)
-    groups_page.open_groups_page()
+    groups_page.open_group_page()
     yield groups_page
 
 
@@ -66,7 +67,7 @@ def log_in_new_user(browser):
     login_page = LoginPage(browser)
     login_page.open_login_page()
     login_page.login(new_username, new_password)
-    admin_page = WelcomePage(browser)
+    admin_page = AdminPage(browser)
     admin_page.open_admin_page()
     yield admin_page
     browser.quit()

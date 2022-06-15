@@ -1,4 +1,3 @@
-from selenium.webdriver.support.select import Select
 from pages.Base_page import BasePage
 from locators.Post_page_locators import Posts_Page_Locators
 

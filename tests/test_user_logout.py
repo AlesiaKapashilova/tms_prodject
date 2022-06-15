@@ -1,15 +1,8 @@
 import pytest
 import allure
-from selenium import webdriver
-from configs.common_parsing import username, password, new_username, \
-    new_password, group_name
-from pages.Admin_page import AdminPage
-from pages.Database_page import DataBasePage
+from configs.common_parsing import username, password
 from pages.Login_page import *
-from pages.User_add_page import *
-from pages.Group_page import *
 from pages.User_page_logout import *
-from pages.Base_page import *
 
 
 class TestLogout():

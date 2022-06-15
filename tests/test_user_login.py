@@ -1,6 +1,5 @@
 import allure
 import pytest
-
 from configs.common_parsing import new_username, new_password
 from pages.Login_page import *
 

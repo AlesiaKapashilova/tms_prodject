@@ -1,7 +1,5 @@
 from pages.API_page import UserAPIPage, PetAPIPage
-
 from configs.api_parsing import *
-
 import allure
 import pytest
 
