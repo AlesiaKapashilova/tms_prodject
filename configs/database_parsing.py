@@ -1,7 +1,7 @@
 import configparser
 
 config = configparser.ConfigParser()
-config.read('/home/alesya/les/my_work/tms_prodject/configs/database_configs.ini')
+config.read('configs/database_configs.ini')
 
 # database_connection
 user = config.get("database_connection", "user")
