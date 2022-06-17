@@ -25,7 +25,7 @@ class TestAddUser():
         with allure.step('Checking the transition to the page in the admin page'):
             assert login_user.current_url() == admin_link
 
-    @allure.feature('UI tests ')
+    @allure.feature('UI tests')
     @allure.story('Checking on the UI of the created group in the database')
     @pytest.mark.positive
     def test_group_from_ui(self, login_page, browser):
@@ -36,7 +36,7 @@ class TestAddUser():
         with allure.step('Checking the created group on the UI'):
             assert groups.check_group_exist(group_name)
 
-    @allure.feature('UI and DB tests ')
+    @allure.feature('UI and DB tests')
     @allure.story('Checking in the database of the created user in the group')
     @pytest.mark.positive
     def test_user_add(self, login_page, browser):
