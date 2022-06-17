@@ -2,7 +2,7 @@ import allure
 import pytest
 
 from configs.common_parsing import username, password, group_name, \
-    new_username, new_password
+    new_username, new_password, admin_link
 from configs.database_parsing import user_name
 from pages.Database_page import DataBasePage
 from pages.Group_page import GroupsPage
@@ -23,7 +23,7 @@ class TestAddUser():
             login_user.fill_password_field(password)
             login_user.click_login_field()
         with allure.step('Проверка перехода на страницу в админке'):
-            assert login_user.current_url() == 'http://localhost:8000/admin/'
+            assert login_user.current_url() == admin_link
 
     @allure.feature('UI tests ')
     @allure.story('Проверка на UI созданной группы в БД')

@@ -1,6 +1,6 @@
 import allure
 import pytest
-from configs.common_parsing import new_username, new_password
+from configs.common_parsing import new_username, new_password, admin_link
 from pages.Login_page import *
 
 
@@ -16,4 +16,4 @@ class TestLoginUser():
             login_new_user.fill_password_field(new_password)
             login_new_user.click_login_field()
             with allure.step('Проверка успешной авторизации'):
-                assert login_new_user.current_url() == 'http://localhost:8000/admin/'
+                assert login_new_user.current_url() == admin_link

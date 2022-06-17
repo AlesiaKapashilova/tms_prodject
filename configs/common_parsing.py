@@ -13,3 +13,8 @@ new_password = config.get("user_data", "Password")
 
 # group for users
 group_name = config.get("group_for_user", "group")
+
+# links
+
+admin_link = config.get("links","admin_link")
+logout_link = config.get("links","logout_link")

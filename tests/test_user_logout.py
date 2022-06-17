@@ -1,6 +1,6 @@
 import pytest
 import allure
-from configs.common_parsing import username, password
+from configs.common_parsing import username, password, logout_link, admin_link
 from pages.Login_page import *
 from pages.User_page_logout import *
 
@@ -18,8 +18,7 @@ class TestLogout():
             users_logout = User_Page_Logout(browser)
             users_logout.click_logout_field()
             with allure.step('Проверка logout'):
-                assert (browser.current_url.startswith(
-                    "http://localhost:8000/admin/logout/"))
+                assert (browser.current_url.startswith(logout_link))
 
     def test_login(self, login_page, browser):
         with allure.step('Шаги по авторизации админа'):
@@ -29,4 +28,4 @@ class TestLogout():
             login_user.fill_password_field(password)
             login_user.click_login_field()
         with allure.step('Проверка перехода на страницу в админке'):
-            assert login_user.current_url() == 'http://localhost:8000/admin/'
+            assert login_user.current_url() == admin_link
