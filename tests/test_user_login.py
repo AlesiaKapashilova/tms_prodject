@@ -10,10 +10,10 @@ class TestLoginUser():
     @allure.story('Login new user in positive')
     @pytest.mark.positive
     def test_login_new_user(self, login_page, browser):
-        with allure.step('Шаги авторизации в UI новым пользователем'):
+        with allure.step('Authorization steps in the UI by a new user'):
             login_new_user = LoginPage(browser)
             login_new_user.fill_username_field(new_username)
             login_new_user.fill_password_field(new_password)
             login_new_user.click_login_field()
-            with allure.step('Проверка успешной авторизации'):
+            with allure.step('Checking for Successful Authorization'):
                 assert login_new_user.current_url() == admin_link
