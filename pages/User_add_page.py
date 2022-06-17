@@ -47,7 +47,7 @@ class User_add_page(BasePage):
         return field
 
     def user_creation(self, new_username, new_password):
-        self.click_add_field
+        # self.click_add_field
         self.fill_username_field(new_username)
         self.fill_password_field(new_password)
         self.fill_confirm_passwd_field(new_password)

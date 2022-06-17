@@ -20,3 +20,13 @@ class TestLogout():
             with allure.step('Проверка logout'):
                 assert (browser.current_url.startswith(
                     "http://localhost:8000/admin/logout/"))
+
+    def test_login(self, login_page, browser):
+        with allure.step('Шаги по авторизации админа'):
+            login_user = LoginPage(browser)
+            login_user.logout()
+            login_user.fill_username_field(username)
+            login_user.fill_password_field(password)
+            login_user.click_login_field()
+        with allure.step('Проверка перехода на страницу в админке'):
+            assert login_user.current_url() == 'http://localhost:8000/admin/'

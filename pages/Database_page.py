@@ -56,13 +56,57 @@ class DataBasePage:
 
         return False
 
-    def add_group(self, name_group):
+    def add_group(self, group):
         cursor = self.conn.cursor()
         cursor.execute(
-            "INSERT INTO auth_group (name) VALUES ('" + name_group + "') ON CONFLICT DO NOTHING")
+            "INSERT INTO auth_group (name) VALUES ('" + group + "') ON CONFLICT DO NOTHING")
         self.conn.commit()
         cursor.close()
 
+    def delete_user_from_auth_user_groups(self, name, group):
+        cursor = self.conn.cursor()
+        cursor.execute(
+            "DELETE FROM auth_user_groups WHERE user_id = (SELECT id FROM auth_user WHERE username = '" + name + "') AND "
+                                                                                    "group_id = (SELECT id FROM auth_group WHERE name = '" + group + "')")
+        self.conn.commit()
+        cursor.close()
+
+
+    def delete_group_from_db(self, group):
+        cursor = self.conn.cursor()
+        cursor.execute(
+            "DELETE FROM auth_group WHERE name = '" + group + "'")
+        self.conn.commit()
+        cursor.close()
+
+    def delete_user_from_db(self, name):
+        cursor = self.conn.cursor()
+        cursor.execute(
+            "DELETE FROM auth_user WHERE username = '" + name + "'")
+        self.conn.commit()
+        cursor.close()
+
+    def checked_group_from_db(self, group):
+        cursor = self.conn.cursor()
+        cursor.execute(
+            "SELECT name FROM auth_group WHERE name = '" + group + "'")
+        records = cursor.fetchall()
+        cursor.close()
+        if len(records) == 0:
+            return True
+
+        return False
+
+    def checked_user_from_db(self, name):
+        cursor = self.conn.cursor()
+        cursor.execute(
+            "SELECT username FROM auth_user WHERE username = '" + name + "'")
+        records = cursor.fetchall()
+        cursor.close()
+        if len(records) == 0:
+            return True
+
+        return False
 
     def close(self):
         self.conn.close()

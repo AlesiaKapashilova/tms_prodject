@@ -30,3 +30,9 @@ class LoginPage(BasePage):
         self.fill_username_field(username)
         self.fill_password_field(password)
         self.click_login_field()
+
+    def logout(self):
+        field = self.find_element(LoginPageLocators.LOG_OUT)
+        field.click()
+        return field
+
